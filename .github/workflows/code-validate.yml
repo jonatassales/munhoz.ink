@@ -1,0 +1,23 @@
+name: Lint, Prettier check and Build
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Code validation
+        run: yarn validate:ci

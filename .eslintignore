@@ -1,0 +1,8 @@
+.next
+.idea
+
+coverage
+node_modules
+
+/*.js
+
